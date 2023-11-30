@@ -1,0 +1,785 @@
+{
+  "runtimeOS": "HarmonyOS",
+  "sdkInfo": "false:9:3.2.12.5:Release",
+  "fileList": {
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets": {
+      "mtimeMs": 1701234405242.078,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesHandler.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\GlobalContext.ets"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets": {
+      "mtimeMs": 1701269638657.2585,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmSettingItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmSettingTypes.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\BackContainer.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\detail\\DatePickArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\AlarmClockUtils.ets"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\MainPage.ets": {
+      "mtimeMs": 1701269647614.4873,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\StopwatchPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\timerPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\WorldClockPage.ets"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesHandler.ets": {
+      "mtimeMs": 1701233862194.2954,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesListener.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\GlobalContext.ets": {
+      "mtimeMs": 1697796396000,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\entryability\\EntryAbility.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets"
+      ],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.display.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.app.ability.UIAbility.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.app.ability.Ability.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.app.ability.Configuration.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\application\\UIAbilityContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\bundleManager\\AbilityInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\bundleManager\\ApplicationInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.bundle.bundleManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\bundleManager\\BundleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\bundleManager\\HapModuleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\bundleManager\\ExtensionAbilityInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\ability\\abilityResult.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\ability\\connectOptions.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.rpc.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\application\\Context.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.resourceManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\application\\ApplicationContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.app.ability.AbilityLifecycleCallback.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.window.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.multimedia.image.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.app.ability.EnvironmentCallback.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.app.ability.dialogRequest.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets": {
+      "mtimeMs": 1701269625632.5923,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesHandler.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\BackContainer.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\ReminderService.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\detail\\DatePickArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\IntervalDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\CommonDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\DurationDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RenameDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\MainPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\WorldClock\\ClockArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmList.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmListItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\HeaderContainer.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\WorldClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\NearestAlarmTime.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesListener.ets": {
+      "mtimeMs": 1701243045888.8145,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesHandler.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets"
+      ],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.data.preferences.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets": {
+      "mtimeMs": 1698667024000,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\ReminderItem.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\IntervalDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\DurationDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RenameDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmList.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmListItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\AlarmClockUtils.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmSettingItem.ets": {
+      "mtimeMs": 1701234021179.5957,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmSettingTypes.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmSettingTypes.ets": {
+      "mtimeMs": 1701234021188.335,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmSettingItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets": {
+      "mtimeMs": 1701234030624.4934,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DayDataItem.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\detail\\DatePickArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\IntervalDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\DurationDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RenameDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\BackContainer.ets": {
+      "mtimeMs": 1701241092964.5088,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets": {
+      "mtimeMs": 1701234030630.3796,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\ReminderService.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DataTypeUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\GlobalContext.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesHandler.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DayDataItem.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\detail\\DatePickArea.ets": {
+      "mtimeMs": 1701234030618.0088,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DayDataItem.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets": {
+      "mtimeMs": 1701234021198.5884,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmSettingTypes.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmSettingItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\IntervalDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\DurationDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RenameDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets": {
+      "mtimeMs": 1697796396000,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\GlobalContext.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\BackContainer.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\detail\\DatePickArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\IntervalDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\CommonDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\DurationDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RenameDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\WorldClock\\ClockArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmList.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmListItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\HeaderContainer.ets"
+      ],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.router.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\ReminderItem.ets": {
+      "mtimeMs": 1701219937127.4116,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\ReminderService.ets"
+      ],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.reminderAgentManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.notification.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\notification\\notificationRequest.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.wantAgent.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\wantAgent\\wantAgentInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\wantAgent\\triggerInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\notification\\notificationContent.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\notification\\notificationActionButton.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\notification\\notificationSlot.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DayDataItem.ets": {
+      "mtimeMs": 1698666998000,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\detail\\DatePickArea.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\ReminderService.ets": {
+      "mtimeMs": 1701256488824.328,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\ReminderItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\Logger.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DataTypeUtils.ets": {
+      "mtimeMs": 1697796396000,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\Logger.ets": {
+      "mtimeMs": 1697796396000,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\ReminderService.ets"
+      ],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.notificationManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\IntervalDialog.ets": {
+      "mtimeMs": 1701234030575.309,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\CommonDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\DurationDialog.ets": {
+      "mtimeMs": 1701234030569.2605,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\CommonDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RenameDialog.ets": {
+      "mtimeMs": 1701234030563.2822,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\CommonDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets": {
+      "mtimeMs": 1701234030586.619,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\DetailConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\DetailViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\CommonDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DataTypeUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\SettingItem.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\CommonDialog.ets": {
+      "mtimeMs": 1701233913818.0203,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\IntervalDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\DurationDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RenameDialog.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\Detail\\dialog\\RepeatDialog.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets": {
+      "mtimeMs": 1701307990973.417,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmClockConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\WorldClock\\ClockArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmList.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\HeaderContainer.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\AlarmClockUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\NearestAlarmTime.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\MainPage.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\StopwatchPage.ets": {
+      "mtimeMs": 1701226981844.7332,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\MainPage.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\timerPage.ets": {
+      "mtimeMs": 1701227022120.4814,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\MainPage.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\WorldClockPage.ets": {
+      "mtimeMs": 1701240617105.9685,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\WorldClockConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\WorldClock\\ClockArea.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\HeaderContainer.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\MainPage.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmClockConstants.ets": {
+      "mtimeMs": 1701234405258.9563,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\WorldClock\\ClockArea.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets": {
+      "mtimeMs": 1701308102306.2563,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmClockConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\ReminderService.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DataTypeUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\GlobalContext.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesHandler.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\model\\database\\PreferencesListener.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmListItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\NearestAlarmTime.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\WorldClock\\ClockArea.ets": {
+      "mtimeMs": 1701264903659.1392,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\AlarmClockConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\WorldClockPage.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmList.ets": {
+      "mtimeMs": 1701268680405.401,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmListItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\HeaderContainer.ets": {
+      "mtimeMs": 1701241092948.9817,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\WorldClockPage.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\AlarmClockUtils.ets": {
+      "mtimeMs": 1701259742753.1045,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\DetailIndex.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmListItem.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmListItem.ets": {
+      "mtimeMs": 1701259852857.0608,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmItem.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\DimensionUtils.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\util\\AlarmClockUtils.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\AlarmList.ets"
+      ],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\WorldClockConstants.ets": {
+      "mtimeMs": 1701234107005.0884,
+      "children": [],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\WorldClockPage.ets"
+      ],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\canvas.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\common.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\component\\common.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\web.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.web.webview.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\matrix2d.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\view\\AlarmClock\\NearestAlarmTime.ets": {
+      "mtimeMs": 1701254991653.6406,
+      "children": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets",
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\viewmodel\\AlarmClockViewModel.ets"
+      ],
+      "parent": [
+        "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\ets\\pages\\AlarmClockPage.ets"
+      ],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.reminderAgent.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.prompt.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\software\\Huawei\\Sdk\\openharmony\\9\\ets\\api\\@ohos.promptAction.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "E:\\coding\\Harmony\\AlarmClock\\entry\\build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main",
+        "RESOURCES_PATH": [
+          "E:\\coding\\Harmony\\AlarmClock\\entry\\src\\main\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates\\loader_out\\default",
+          "JS_LITE_ASSETS_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates\\loader_out_lite\\default",
+          "RES_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
+          "WORKER_LOADER": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates\\manifest\\default",
+          "OUTPUT_METADATA_JSON": "E:\\coding\\Harmony\\AlarmClock\\entry\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json"
+        }
+      }
+    }
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "E:\\coding\\Harmony\\AlarmClock\\build",
+    "BUNDLE_NAME": "com.huawei.alarmclock",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "E:\\coding\\Harmony\\AlarmClock\\build\\outputs\\default"
+    }
+  },
+  "version": 1
+}
