@@ -41,6 +41,10 @@
       "value": "24"
     },
     {
+      "name": "play_button_size",
+      "value": "60"
+    },
+    {
       "name": "delete_button_width",
       "value": "120"
     },
@@ -244,6 +248,11 @@
       "name": "font_size_L",
       "value": "24vp"
     },
+    {
+      "name": "stop_watch_font_size",
+      "value": "60vp"
+    },
+
     {
       "name": "bar_height",
       "value": "60"
