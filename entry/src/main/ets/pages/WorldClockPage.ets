@@ -10,6 +10,7 @@ export default struct WorldClockPage {
       HeaderContainer({ title: WorldClockConstants.WORLD_CLOCK }) {
 
       }
+
       ClockArea()
     }
     .width(CommonConstants.FULL_LENGTH)
