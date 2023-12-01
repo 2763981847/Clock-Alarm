@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import MainModel from '../../viewmodel/AlarmClockViewModel';
+import AlarmClockViewModel from '../../viewmodel/AlarmClockViewModel';
 import { CommonConstants } from '../../common/constant/CommonConstants';
 import AlarmItem from '../../viewmodel/AlarmItem';
 import DimensionUtil from '../../common/util/DimensionUtils';
@@ -22,9 +22,8 @@ import { findNearestAlarmTime, generateNearestAlarmTimeToast } from '../../commo
 
 @Component
 export default struct AlarmListItem {
-  private mainModel: MainModel = MainModel.instant;
+  private mainModel: AlarmClockViewModel = AlarmClockViewModel.instant;
   private alarmItem: AlarmItem = new AlarmItem();
-
   build() {
     Row() {
       Column() {

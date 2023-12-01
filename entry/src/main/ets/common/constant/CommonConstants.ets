@@ -22,6 +22,11 @@ export class CommonConstants {
    * database alarm data key.
    */
   static readonly ALARM_KEY = 'alarmData';
+
+  /**
+   * database city data key.
+   */
+  static readonly CITY_KEY = 'cityData';
   /**
    * common full length
    */

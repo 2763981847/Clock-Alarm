@@ -34,3 +34,27 @@ export function formatDateTime(date: Date | number, format: string): string {
   // 返回格式化后的日期字符串
   return format;
 }
+
+export function getChineseWeekday(dayOfWeek: number): string {
+  const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+
+  if (dayOfWeek >= 0 && dayOfWeek <= 6) {
+    return weekdays[dayOfWeek];
+  } else {
+    throw new Error('无效的星期几数字，必须在0到6之间');
+  }
+}
+
+export function plusOffset(date: number | Date, offset: number): Date {
+  date = new Date(date)
+  // 确定符号并取得绝对值
+  const sign = offset >= 0 ? '+' : '-';
+  const absoluteOffset = Math.abs(offset);
+
+  // 分离小时和分钟
+  const hours = Math.floor(absoluteOffset);
+  const minutes = Math.floor((absoluteOffset - hours) * 60);
+  date.setHours(date.getHours() + (offset >= 0 ? hours : -hours))
+  date.setMinutes(date.getMinutes() + (offset >= 0 ? minutes : -minutes))
+  return date
+}

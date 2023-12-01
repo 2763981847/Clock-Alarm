@@ -69,6 +69,10 @@
       "value": "12"
     },
     {
+      "name": "city_list_space",
+      "value": "16"
+    },
+    {
       "name": "alarm_list_content_distance",
       "value": "12"
     },
@@ -252,7 +256,6 @@
       "name": "stop_watch_font_size",
       "value": "60vp"
     },
-
     {
       "name": "bar_height",
       "value": "60"

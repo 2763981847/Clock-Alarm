@@ -19,24 +19,18 @@ import DimensionUtil from '../../common/util/DimensionUtils';
 
 @Component
 export default struct ClockArea {
-  private drawInterval: number = CommonConstants.DEFAULT_NUMBER_NEGATIVE;
   private canvasSize: number = DimensionUtil.getVp($r('app.float.clock_size'));
   private clockRadius: number = this.canvasSize / CommonConstants.DEFAULT_DOUBLE - CommonConstants.DEFAULT_DOUBLE;
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private renderContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-
-  aboutToDisappear() {
-    clearInterval(this.drawInterval);
-  }
+  @Link @Watch('drawClockArea') now: number
 
   build() {
     Canvas(this.renderContext)
       .width(this.canvasSize)
       .aspectRatio(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
       .onReady(() => {
-        if (this.drawInterval === CommonConstants.DEFAULT_NUMBER_NEGATIVE) {
-          this.startDrawTask();
-        }
+        this.startDrawTask();
       })
   }
 
@@ -46,9 +40,6 @@ export default struct ClockArea {
       this.canvasSize / CommonConstants.DEFAULT_DOUBLE,
       this.canvasSize / CommonConstants.DEFAULT_DOUBLE);
     this.drawClockArea();
-    this.drawInterval = setInterval(() => {
-      this.drawClockArea();
-    }, AlarmClockConstants.DEFAULT_ONE_SECOND_MS);
   }
 
   // 开始绘制时钟区域
@@ -58,7 +49,7 @@ export default struct ClockArea {
       -this.canvasSize / CommonConstants.DEFAULT_DOUBLE,
       this.canvasSize * CommonConstants.DEFAULT_DOUBLE,
       this.canvasSize);
-    let date = new Date();
+    let date = new Date(this.now);
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
