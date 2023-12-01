@@ -1,7 +1,7 @@
 import { CommonConstants } from '../common/constant/CommonConstants'
 import AlarmClockPage from './AlarmClockPage'
 import StopwatchPage from './StopwatchPage'
-import TimerPage from './timerPage'
+import TimerPage from './TimerPage'
 import WorldClockPage from './WorldClockPage'
 
 @Entry

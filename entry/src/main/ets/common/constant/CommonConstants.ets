@@ -126,8 +126,24 @@ export class CommonConstants {
    * ability name.
    */
   static readonly ABILITY_NAME: string = 'EntryAbility';
+  /**
+   * animation
+   */
   static readonly ANIMATION_MEDIUM_DURATION = 500
   static readonly ANIMATION_SHORT_DURATION = 300
+  /**
+   * date time
+   */
+  // 时间单位换算的常量
+  static readonly MILLISECONDS_PER_SECOND = 1000;
+  static readonly SECONDS_PER_MINUTE = 60;
+  static readonly MINUTES_PER_HOUR = 60;
+  static readonly HOURS_PER_DAY = 24;
+  static readonly DAYS_PER_WEEK = 7;
+  static readonly MILLISECONDS_PER_MINUTE = CommonConstants.MILLISECONDS_PER_SECOND * CommonConstants.SECONDS_PER_MINUTE;
+  static readonly MILLISECONDS_PER_HOUR = CommonConstants.MILLISECONDS_PER_MINUTE * CommonConstants.MINUTES_PER_HOUR;
+  static readonly MILLISECONDS_PER_DAY = CommonConstants.MILLISECONDS_PER_HOUR * CommonConstants.HOURS_PER_DAY;
+  static readonly MILLISECONDS_PER_WEEK = CommonConstants.MILLISECONDS_PER_DAY * CommonConstants.DAYS_PER_WEEK;
 }
 
 /**
