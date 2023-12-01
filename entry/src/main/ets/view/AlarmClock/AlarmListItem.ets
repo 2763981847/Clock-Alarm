@@ -52,6 +52,7 @@ export default struct AlarmListItem {
         .onChange((isOn: boolean) => {
           this.mainModel.openAlarm(this.alarmItem.id, isOn);
           if (isOn) {
+            this.alarmItem.isOpen = true
             let nextAlarmTime = findNearestAlarmTime([this.alarmItem])
             promptAction.showToast({
               message: generateNearestAlarmTimeToast(nextAlarmTime)

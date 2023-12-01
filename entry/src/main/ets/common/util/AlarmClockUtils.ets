@@ -1,4 +1,5 @@
 import AlarmItem from '../../viewmodel/AlarmItem';
+import { CommonConstants } from '../constant/CommonConstants';
 
 export function generateNearestAlarmTimeToast(nextAlarmTime: {
   days: number,
@@ -28,9 +29,9 @@ export function findNearestAlarmTime(alarmItems: Array<AlarmItem>): {
         minimumTimeDiff = timeDiff;
       }
     });
-  let days = Math.floor(minimumTimeDiff / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((minimumTimeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((minimumTimeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  let days = Math.floor(minimumTimeDiff / CommonConstants.MILLISECONDS_PER_DAY);
+  let hours = Math.floor((minimumTimeDiff % CommonConstants.MILLISECONDS_PER_DAY) / CommonConstants.MILLISECONDS_PER_HOUR);
+  let minutes = Math.floor((minimumTimeDiff % CommonConstants.MILLISECONDS_PER_HOUR) / CommonConstants.MILLISECONDS_PER_MINUTE);
   return { days: days, hours: hours, minutes: minutes };
 }
 
