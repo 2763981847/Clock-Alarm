@@ -24,18 +24,15 @@ import { findNearestAlarmTime, generateNearestAlarmTimeToast } from '../../commo
 export default struct AlarmListItem {
   private mainModel: AlarmClockViewModel = AlarmClockViewModel.instant;
   private alarmItem: AlarmItem = new AlarmItem();
+
   build() {
     Row() {
       Column() {
-        Row() {
-          Text(this.mainModel.getNoonContent(this.alarmItem.hour))
-            .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_noon_font_size')),
-              FontWeight.Regular)
-          Text(this.mainModel.getTaskTimeContent(this.alarmItem.hour, this.alarmItem.minute))
-            .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_time_font_size')),
-              FontWeight.Regular,
-              { left: DimensionUtil.getVp($r('app.float.alarms_item_time_margin_left')) })
-        }
+
+        Text(this.mainModel.getTaskTimeContent(this.alarmItem.hour, this.alarmItem.minute))
+          .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_time_font_size')),
+            FontWeight.Regular,
+            { left: DimensionUtil.getVp($r('app.float.alarms_item_time_margin_left')) })
 
         Text(this.mainModel.getDescContent(this.alarmItem))
           .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_dec_font_size')),

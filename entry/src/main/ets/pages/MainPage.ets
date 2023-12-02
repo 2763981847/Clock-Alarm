@@ -9,21 +9,22 @@ import WorldClockPage from './WorldClockPage'
 struct MainPage {
   // 定义状态变量
   @State currentIndex: number = 0
-  private fontColor: string = '#182431'
-  private selectedFontColor: string = '#007DFF'
+  private fontColor: Resource = $r('app.color.grey_text')
+  private selectedFontColor: Resource = $r('app.color.red_light')
   // 创建 TabsController 对象
   private controller: TabsController = new TabsController()
   // 定义 TabBuilder 构建函数
   @Builder TabBuilder(index: number, name: string, image: Resource, activeImage: Resource) {
-    Column() {
+    Column({ space: 2 }) {
       // 根据当前索引选择显示普通图标或激活状态图标
       Image(this.currentIndex === index ? activeImage : image)
-        .width(24)
-        .height(24)
+        .width(25)
+        .height(25)
+        .objectFit(ImageFit.Contain)
       // 根据当前索引设置字体颜色、字体大小和字体粗细
       Text(name)
         .fontColor(this.currentIndex === index ? this.selectedFontColor : this.fontColor)
-        .fontSize($r('app.float.font_size_S'))
+        .fontSize($r('app.float.font_size_SM'))
         .fontWeight(this.currentIndex === index ? 500 : 400)
     }
     .justifyContent(FlexAlign.End)
@@ -45,22 +46,22 @@ struct MainPage {
       // 创建第一个 Tab 内容，即闹钟页面
       TabContent() {
         AlarmClockPage()
-      }.tabBar(this.TabBuilder(0, '闹钟', null, null))
+      }.tabBar(this.TabBuilder(0, '闹钟', $r('app.media.ic_alarm'), $r('app.media.ic_alarm_active')))
 
       // 创建第二个 Tab 内容，即世界时钟页面
       TabContent() {
         WorldClockPage()
-      }.tabBar(this.TabBuilder(1, '世界时钟', null, null))
+      }.tabBar(this.TabBuilder(1, '世界时钟', $r('app.media.ic_world_clock'), $r('app.media.ic_world_clock_active')))
 
       // 创建第三个 Tab 内容，即秒表页面
       TabContent() {
         StopwatchPage()
-      }.tabBar(this.TabBuilder(2, '秒表', null, null))
+      }.tabBar(this.TabBuilder(2, '秒表', $r('app.media.ic_stop_watch'), $r('app.media.ic_stop_watch_active')))
 
       // 创建第四个 Tab 内容，即计时器页面
       TabContent() {
         TimerPage()
-      }.tabBar(this.TabBuilder(3, '计时器', null, null))
+      }.tabBar(this.TabBuilder(3, '计时器', $r('app.media.ic_timer'), $r('app.media.ic_timer_active')))
     }
     // 设置 Tabs 组件的样式和属性
     .vertical(false)

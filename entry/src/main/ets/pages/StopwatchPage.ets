@@ -144,10 +144,7 @@ export default struct StopwatchPage {
           )
         })
 
-      }.padding({
-        left: DimensionUtil.getVp($r('app.float.title_horizon_margin')),
-        right: DimensionUtil.getVp($r('app.float.title_horizon_margin'))
-      })
+      }.padding(DimensionUtil.getVp($r('app.float.title_horizon_margin')))
       .width(CommonConstants.FULL_LENGTH)
       .justifyContent(FlexAlign.SpaceAround)
 
