@@ -1,25 +1,11 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-import DayDataItem from '../../viewmodel/DayDataItem'
-
 /**
- * Detail page constant description.
+ * 详细页面常量描述。
  */
+import DayDataItem from '../../viewmodel/DayDataItem';
+
 export class DetailConstants {
   /**
-   * detail page day data.
+   * 详细页面的日期数据。
    */
   static readonly DAY_DATA: DayDataItem[] = [
 
@@ -40,43 +26,43 @@ export class DetailConstants {
     } as DayDataItem
   ];
   /**
-   * week day data.
+   * 星期日期数据。
    */
   static readonly WEEKDAY_DATA: number[] = [1, 2, 3, 4, 5, 6, 7];
   /**
-   * ring duration list data.
+   * 铃声时长列表数据。
    */
   static readonly RING_DURATION: number[] = [1, 5, 10, 15, 20, 30];
   /**
-   * default string minute.
+   * 默认的分钟字符串。
    */
   static readonly DEFAULT_STRING_MINUTE: string = '分钟';
   /**
-   * default string group name.
+   * 默认的单选框组名称字符串。
    */
   static readonly DEFAULT_STRING_GROUP_NAME: string = 'radioGroup';
   /**
-   * default string provider key.
+   * 默认的提供者键字符串。
    */
   static readonly DEFAULT_PROVIDER_KEY: string = 'alarmItemProvide';
   /**
-   * default string repeat.
+   * 默认的重复字符串。
    */
   static readonly DEFAULT_STRING_REPEAT: string = '重复';
   /**
-   * default string alarm name.
+   * 默认的闹钟名称字符串。
    */
   static readonly DEFAULT_STRING_ALARM_NAME: string = '闹钟名';
   /**
-   * default string interval.
+   * 默认的再响间隔字符串。
    */
   static readonly DEFAULT_STRING_INTERVAL: string = '再响间隔';
   /**
-   * default string duration.
+   * 默认的闹铃时长字符串。
    */
   static readonly DEFAULT_STRING_DURATION: string = '闹铃时长';
   /**
-   * default string times.
+   * 默认的次数字符串。
    */
   static readonly DEFAULT_STRING_TIMES: string = '次';
 }

@@ -1,24 +1,9 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import data_preferences from '@ohos.data.preferences';
 import { CommonConstants } from '../../common/constant/CommonConstants';
 import PreferencesListener from './PreferencesListener';
 
 /**
- * Based on lightweight databases preferences handler.
+ * 用户首选项处理器，基于轻量级数据库的数据存储和管理工具。
  */
 export default class PreferencesHandler {
   static instance: PreferencesHandler = new PreferencesHandler();
@@ -31,13 +16,14 @@ export default class PreferencesHandler {
   }
 
   /**
-   * Configure PreferencesHandler.
+   * 配置偏好设置处理器，用于初始化用户首选项存储。
    *
-   * @param context Context
+   * @param context 上下文对象，提供对应用程序的访问权限
    */
   public async configure(context: Context) {
     this.preferences = await data_preferences.getPreferences(context, CommonConstants.PREFERENCE_ID);
     this.preferences.on('change', (data: Record<string, Object>) => {
+      // 当首选项数据发生变化时，通知所有已注册的监听器
       for (let preferencesListener of this.listeners) {
         preferencesListener.onDataChanged(data.key as string);
       }
@@ -45,10 +31,10 @@ export default class PreferencesHandler {
   }
 
   /**
-   * Set data in PreferencesHandler.
+   * 在用户首选项中设置键值对数据。
    *
-   * @param key string
-   * @param value any
+   * @param key 键名
+   * @param value 值
    */
   public async set(key: string, value: string) {
     if (this.preferences != null) {
@@ -58,11 +44,10 @@ export default class PreferencesHandler {
   }
 
   /**
-   * Get data in PreferencesHandler.
+   * 从用户首选项中获取键对应的值。
    *
-   * @param key string
-   * @param defValue any
-   * @return data about key
+   * @param key 键名
+   * @return 与键关联的数据值，如果键不存在则返回默认值
    */
   public async get(key: string) {
     let data: string = '';
@@ -73,7 +58,7 @@ export default class PreferencesHandler {
   }
 
   /**
-   * Clear data in PreferencesHandler.
+   * 清除用户首选项中的数据。
    */
   public clear() {
     if (this.preferences != null) {
@@ -82,9 +67,9 @@ export default class PreferencesHandler {
   }
 
   /**
-   * Add preferences listener in PreferencesHandler.
+   * 添加用户首选项变化监听器，以便在数据变化时得到通知。
    *
-   * @param listener PreferencesListener
+   * @param listener 偏好设置监听器对象
    */
   public addPreferencesListener(listener: PreferencesListener) {
     this.listeners.push(listener);

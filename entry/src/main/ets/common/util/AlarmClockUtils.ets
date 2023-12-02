@@ -1,23 +1,33 @@
 import AlarmItem, { RepeatType } from '../../viewmodel/AlarmItem';
 import { CommonConstants } from '../constant/CommonConstants';
 
+/**
+ * 生成最近闹钟提醒时间的提示文本。
+ * @param nextAlarmTime 下一个闹钟的时间信息
+ * @returns 提示文本
+ */
 export function generateNearestAlarmTimeToast(nextAlarmTime: {
   days: number,
   hours: number,
   minutes: number
 }): string {
   if (nextAlarmTime.days === 0 && nextAlarmTime.hours === 0 && nextAlarmTime.minutes === 0) {
-    return "闹钟将在1分钟之内提醒"
+    return "闹钟将在1分钟之内提醒";
   }
-  return `闹钟将在  ${nextAlarmTime.days === 0 ? '' : nextAlarmTime.days + ' 天 '}${nextAlarmTime.hours === 0 ? '' : nextAlarmTime.hours + ' 小时 '}${nextAlarmTime.minutes === 0 ? '' : nextAlarmTime.minutes + ' 分钟 '}后提醒`
+  return `闹钟将在  ${nextAlarmTime.days === 0 ? '' : nextAlarmTime.days + ' 天 '}${nextAlarmTime.hours === 0 ? '' : nextAlarmTime.hours + ' 小时 '}${nextAlarmTime.minutes === 0 ? '' : nextAlarmTime.minutes + ' 分钟 '}后提醒`;
 }
 
+/**
+ * 查找最近的闹钟提醒时间。
+ * @param alarmItems 闹钟项数组
+ * @returns 最近的闹钟时间信息
+ */
 export function findNearestAlarmTime(alarmItems: Array<AlarmItem>): {
   days: number,
   hours: number,
   minutes: number
 } {
-  if (!alarmItems || alarmItems.length === 0) return null
+  if (!alarmItems || alarmItems.length === 0) return null;
   let now = new Date();
   let minimumTimeDiff = Infinity;
   let openedAlarms = alarmItems.filter(alarm => alarm.isOpen);
@@ -35,11 +45,15 @@ export function findNearestAlarmTime(alarmItems: Array<AlarmItem>): {
   return { days: days, hours: hours, minutes: minutes };
 }
 
+/**
+ * 获取下一个闹钟提醒时间。
+ * @param alarm 闹钟项
+ * @returns 下一个闹钟的时间
+ */
 export function getNextAlarmTime(alarm: AlarmItem): Date {
   // 根据 alarm 的具体属性计算下一个响铃时间
   let now = new Date();
   let nextAlarmDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), alarm.hour, alarm.minute);
-
 
   if (alarm.repeatType === RepeatType.NoRepeat) {
     // 如果不重复，检查是否已经过了今天的响铃时间

@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { CommonConstants } from '../../common/constant/CommonConstants';
 import { AlarmSettingTypes } from '../../common/constant/AlarmSettingTypes';
 import AlarmSettingItem from '../../viewmodel/AlarmSettingItem';
@@ -42,6 +27,7 @@ export default struct SettingItem {
     autoCancel: true
   });
 
+  // 打开设置对话框的函数
   private showSettingDialog(sType: AlarmSettingTypes) {
     switch (sType) {
       case AlarmSettingTypes.REPEAT:
@@ -63,6 +49,7 @@ export default struct SettingItem {
 
   build() {
     Column() {
+      // 遍历设置信息
       ForEach(this.settingInfo, (item: AlarmSettingItem, index: number | undefined) => {
         Divider()
           .visibility(index === 0 ? Visibility.Hidden : Visibility.Visible)
@@ -74,16 +61,19 @@ export default struct SettingItem {
             right: DimensionUtil.getVp($r('app.float.setting_item_divider_margin_horizon'))
           })
         Row() {
+          // 显示设置项的标题
           Text(item.title)
             .fontSize(DimensionUtil.getFp($r('app.float.setting_item_name_font_size')))
             .fontWeight(FontWeight.Regular)
             .fontColor($r('app.color.grey_divider'))
             .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
+          // 显示设置项的内容
           Text(item.content)
             .fontSize(DimensionUtil.getFp($r('app.float.setting_item_content_font_size')))
             .fontWeight(FontWeight.Normal)
             .fontColor($r('app.color.grey_divider'))
             .opacity($r('app.float.setting_item_content_font_opacity'))
+          // 显示右箭头图标
           Image($r('app.media.ic_right'))
             .width(DimensionUtil.getVp($r('app.float.setting_item_image_width')))
             .height(DimensionUtil.getVp($r('app.float.setting_item_image_height')))
@@ -99,6 +89,7 @@ export default struct SettingItem {
           right: DimensionUtil.getVp($r('app.float.setting_item_interval'))
         })
         .onClick(() => {
+          // 点击时打开相应的设置对话框
           this.showSettingDialog(item.sType);
         })
       }, (item: AlarmSettingItem, index: number | undefined) => JSON.stringify(item) + index)

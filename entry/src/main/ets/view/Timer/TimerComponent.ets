@@ -35,6 +35,7 @@ export default struct TimerComponent {
         .onTimer((_utc: number, elapsedTime: number) => {
           let restTime = this.count - elapsedTime
           if (restTime <= 0) {
+            // 当计时结束时，发布提醒并执行回调
             reminderAgent.publishReminder(this.reminderRequestTimer)
             this.onCountOver();
           }
@@ -49,6 +50,7 @@ export default struct TimerComponent {
       DataPanel({ values: this.restTimeContainer, max: this.count, type: DataPanelType.Circle })
         .closeEffect(true).width(400).height(400)
     }
+    // 当组件出现时开始计时
     .onAppear(() => this.textTimerController.start())
   }
 }

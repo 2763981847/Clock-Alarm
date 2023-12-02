@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { CommonConstants } from '../../../common/constant/CommonConstants';
 import { DetailConstants } from '../../../common/constant/DetailConstants';
 import AlarmItem from '../../../viewmodel/AlarmItem';
@@ -20,72 +5,48 @@ import CommonDialog from './CommonDialog';
 import DimensionUtil from '../../../common/util/DimensionUtils';
 
 @CustomDialog
-export default struct IntervalDialog {
+export default struct DurationDialog {
+  // 使用 DetailConstants.DEFAULT_PROVIDER_KEY 提供的 AlarmItem
   @Consume(DetailConstants.DEFAULT_PROVIDER_KEY) alarmItem: AlarmItem;
-  @State intervalMinuteSelect: number = 0;
-  @State intervalTimesSelect: number = 0;
+  // 响铃时长选项，以分钟为单位
+  private durations: Array<number> = DetailConstants.RING_DURATION;
+  // 弹窗控制器
   controller?: CustomDialogController;
 
-  aboutToAppear(): void{
-    this.intervalMinuteSelect = this.alarmItem.intervalMinute;
-    this.intervalTimesSelect = this.alarmItem.intervalTimes;
-  }
-
+  // 构建组件
   build() {
     Flex() {
-      if ((this.intervalTimesSelect | this.intervalMinuteSelect) > 0) {
-        CommonDialog({
-          title: $r('app.string.ring_interval'),
-          controller: this.controller,
-          onConfirm: () => {
-            this.alarmItem.intervalMinute = Number(this.intervalMinuteSelect.toFixed(0))
-            this.alarmItem.intervalTimes = Number(this.intervalTimesSelect.toFixed(0))
+      // 使用 CommonDialog 组件来构建通用对话框
+      CommonDialog({
+        title: $r('app.string.ring_duration'),
+        controller: this.controller
+      }) {
+        // 遍历响铃时长选项
+        ForEach(this.durations, (item: number) => {
+          Row() {
+            // 显示响铃时长和单位
+            Text(item + CommonConstants.DEFAULT_STRING_SPACE + DetailConstants.DEFAULT_STRING_MINUTE)
+              .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
+              .fontColor($r('app.color.grey_divider'))
+              .fontSize(DimensionUtil.getFp($r('app.float.duration_dialog_content_font_size')))
+
+            // 创建单选按钮，用于选择响铃时长
+            Radio({ value: item.toString(), group: DetailConstants.DEFAULT_STRING_GROUP_NAME })
+              .checked(item === this.alarmItem.duration ? true : false)
+              .height(DimensionUtil.getVp($r('app.float.duration_dialog_radio_size')))
+              .width(DimensionUtil.getVp($r('app.float.duration_dialog_radio_size')))
+              .onChange(() => {
+                // 当单选按钮被选中时，更新 AlarmItem 的响铃时长并关闭对话框
+                if (!this.controller) {
+                  return;
+                }
+                this.controller.close();
+                this.alarmItem.duration = item;
+              })
           }
-        }) {
-          this.IntervalItem($r('app.string.ring_interval_content'), 0)
-          Divider()
-            .opacity($r('app.float.divider_opacity'))
-            .color($r('app.color.grey_divider'))
-            .lineCap(LineCapStyle.Round)
-          this.IntervalItem($r('app.string.ring_times_content'), CommonConstants.DEFAULT_SINGLE)
-        }
+          .width(CommonConstants.FULL_LENGTH)
+        })
       }
     }
-  }
-
-  @Builder IntervalItem(title: string | Resource, intervalType: number) {
-    Text(title)
-      .fontSize(DimensionUtil.getFp($r('app.float.interval_dialog_title_font_size')))
-      .width(CommonConstants.FULL_LENGTH)
-      .textAlign(TextAlign.Start)
-      .margin({
-        top: DimensionUtil.getVp($r('app.float.interval_dialog_title_margin_top'))
-      })
-    Row() {
-      Slider({
-        value: (intervalType === 0 ? this.intervalMinuteSelect : this.intervalTimesSelect),
-        min: (intervalType === 0 ? CommonConstants.DEFAULT_INTERVAL_STEP : 0),
-        max: (intervalType === 0
-          ? CommonConstants.DEFAULT_INTERVAL_MINUTE_MAX
-          : CommonConstants.DEFAULT_INTERVAL_TIME_MAX),
-        step: (intervalType === 0 ? CommonConstants.DEFAULT_INTERVAL_STEP : CommonConstants.DEFAULT_DOUBLE),
-        style: SliderStyle.OutSet
-      })
-        .blockColor(Color.Blue)
-        .trackColor(Color.Gray)
-        .selectedColor(Color.Blue)
-        .showSteps(true)
-        .showTips(false)
-        .onChange((value: number) => {
-          if (intervalType === 0) {
-            this.intervalMinuteSelect = value;
-          } else {
-            this.intervalTimesSelect = value;
-          }
-        })
-      Text((intervalType === 0 ? this.intervalMinuteSelect : this.intervalTimesSelect).toFixed(0))
-        .fontSize(DimensionUtil.getFp($r('app.float.interval_dialog_result_font_size')))
-    }
-    .width(CommonConstants.FULL_LENGTH)
   }
 }

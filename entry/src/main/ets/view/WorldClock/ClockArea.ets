@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { CommonConstants } from '../../common/constant/CommonConstants';
 import { AlarmClockConstants } from '../../common/constant/AlarmClockConstants';
 import DimensionUtil from '../../common/util/DimensionUtils';
@@ -32,7 +17,7 @@ export default struct ClockArea {
       .height(this.canvasSize)
       .onReady(() => {
         this.startDrawTask();
-        this.isReady = true
+        this.isReady = true;
       })
   }
 
@@ -46,7 +31,7 @@ export default struct ClockArea {
   // 开始绘制时钟区域
   private drawClockArea(): void {
     if (!this.isReady) {
-      return
+      return;
     }
     this.renderContext.clearRect(
       -this.canvasSize,
@@ -62,8 +47,8 @@ export default struct ClockArea {
       CommonConstants.DEFAULT_INTERVAL_MINUTE_MAX * (hours > CommonConstants.DEFAULT_TOTAL_HOUR
         ? hours - CommonConstants.DEFAULT_TOTAL_HOUR
         : hours)
-      + minutes / CommonConstants.DEFAULT_TOTAL_HOUR * CommonConstants.DEFAULT_COMMON_DEGREE
-      , AlarmClockConstants.HOUR_POINTER_IMAGE_URL);
+      + minutes / CommonConstants.DEFAULT_TOTAL_HOUR * CommonConstants.DEFAULT_COMMON_DEGREE,
+      AlarmClockConstants.HOUR_POINTER_IMAGE_URL);
     this.drawPointer(CommonConstants.DEFAULT_COMMON_DEGREE * minutes, AlarmClockConstants.MINUTE_POINTER_IMAGE_URL);
     this.drawPointer(CommonConstants.DEFAULT_COMMON_DEGREE * seconds, AlarmClockConstants.SECOND_POINTER_IMAGE_URL);
   }

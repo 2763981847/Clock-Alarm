@@ -1,29 +1,29 @@
+/**
+ * 基于 Ohos 提醒代理服务的提醒服务类。
+ */
 import reminderAgent from '@ohos.reminderAgentManager';
-import notification from '@ohos.notificationManager';
 import { CommonConstants } from '../common/constant/CommonConstants';
 import ReminderItem from '../viewmodel/ReminderItem';
+import notification from '@ohos.notificationManager';
 import Logger from '../common/util/Logger';
 
-/**
- * Base on ohos reminder agent service
- */
 export default class ReminderService {
   /**
-   * open notification permission
+   * 请求开启通知权限。
    */
   public openNotificationPermission() {
     notification.requestEnableNotification().then(() => {
-      Logger.info('Enable notification success');
+      Logger.info('开启通知权限成功');
     }).catch((err: Error) => {
-      Logger.error('Enable notification failed because ' + JSON.stringify(err));
+      Logger.error('开启通知权限失败，原因：' + JSON.stringify(err));
     });
   }
 
   /**
-   * Adding and modifying alarm reminders
+   * 添加或修改提醒。
    *
    * @param alarmItem ReminderItem
-   * @param callback callback
+   * @param callback 回调函数，可选参数，用于返回提醒的 ID
    */
   public addReminder(alarmItem: ReminderItem, callback?: (reminderId: number) => void) {
     let reminder = this.initReminder(alarmItem);
@@ -35,14 +35,19 @@ export default class ReminderService {
   }
 
   /**
-   * Adding and modifying alarm reminders
+   * 删除提醒。
    *
-   * @param reminderId number
+   * @param reminderId number 提醒的 ID
    */
   public deleteReminder(reminderId: number) {
     reminderAgent.cancelReminder(reminderId);
   }
 
+  /**
+   * 获取有效的提醒列表。
+   *
+   * @param callback 回调函数，可选参数，用于返回有效提醒的列表
+   */
   public getValidReminders(callback?: (reminderRequests: Array<reminderAgent.ReminderRequest>) => void) {
     reminderAgent.getValidReminders((_err, reminderRequests: Array<reminderAgent.ReminderRequest>) => {
       if (callback != null) {
@@ -77,8 +82,8 @@ export default class ReminderService {
         abilityName: CommonConstants.ABILITY_NAME
       },
       notificationId: item.notificationId,
-      expiredContent: 'this reminder has expired',
-      snoozeContent: 'remind later',
+      expiredContent: '该提醒已过期',
+      snoozeContent: '稍后提醒',
       slotType: notification.SlotType.SOCIAL_COMMUNICATION
     }
   }

@@ -14,9 +14,12 @@ export default struct CityList {
     List({ space: DimensionUtil.getVp($r('app.float.alarm_list_space')) }) {
       ForEach(this.cityItems, (cityItem: CityItem, index) => {
         ListItem() {
-          CityListItem({ cityItem: cityItem,
+          // 渲染 CityListItem 组件
+          CityListItem({
+            cityItem: cityItem,
             onSelected: () => this.selectedList.push(index),
-            onCanceled: () => this.selectedList.splice(this.selectedList.indexOf(index)) })
+            onCanceled: () => this.selectedList.splice(this.selectedList.indexOf(index))
+          })
         }.transition({ type: TransitionType.All, opacity: 0, scale: { x: 0, y: 0 } })
       }, (cityItem: CityItem) => cityItem.city + " " + cityItem.country)
     }
@@ -25,7 +28,5 @@ export default struct CityList {
       right: DimensionUtil.getVp($r('app.float.alarm_list_content_distance'))
     })
     .width(CommonConstants.FULL_LENGTH)
-
-
   }
 }

@@ -1,40 +1,27 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 import display from '@ohos.display';
 import { GlobalContext } from './GlobalContext';
 
 let context = getContext(this);
 
 /**
- * Design drawing width.
+ * 设计绘制宽度。
  */
 const DESIGN_WIDTH = 360;
 
 /**
- * Design drawing height.
+ * 设计绘制高度。
  */
 const DESIGN_HEIGHT = 780;
 
 /**
- * Fits tools with different sizes and lengths.
+ * 适配不同大小和长度的工具类。
  */
 export default class DimensionUtil {
   /**
-   * Obtains the screen horizontal adaptation value.
+   * 获取屏幕水平适配值。
    *
-   * @return number
+   * @param value 需要适配的值
+   * @return 适配后的值
    */
   static adaptDimension(value: number): number {
     let deviceDisplay = GlobalContext.getContext().getObject('globalDisplay') as display.Display;
@@ -46,9 +33,10 @@ export default class DimensionUtil {
   }
 
   /**
-   * Obtains the screen horizontal adaptation px.
+   * 获取屏幕水平适配 px 值。
    *
-   * @return number
+   * @param value 资源值
+   * @return 适配后的 px 值
    */
   static getPx(value: Resource): number {
     let beforeVp = context.resourceManager.getNumber(value.id);
@@ -56,9 +44,10 @@ export default class DimensionUtil {
   }
 
   /**
-   * Obtains the screen horizontal adaptation vp.
+   * 获取屏幕水平适配 vp 值。
    *
-   * @return number
+   * @param value 资源值
+   * @return 适配后的 vp 值
    */
   static getVp(value: Resource): number {
     let beforeVp = context.resourceManager.getNumber(value.id);
@@ -66,9 +55,10 @@ export default class DimensionUtil {
   }
 
   /**
-   * Obtains the screen horizontal adaptation fp.
+   * 获取屏幕水平适配 fp 值。
    *
-   * @return number
+   * @param value 资源值
+   * @return 适配后的 fp 值
    */
   static getFp(value: Resource): number {
     let beforeFp = context.resourceManager.getNumber(value.id);

@@ -1,44 +1,47 @@
 import ReminderItem from './ReminderItem';
 
 /**
- * Alarm item description.
+ * 闹钟项描述。
  */
 @Observed export default class AlarmItem extends ReminderItem {
   /**
-   * Custom alarm name.
+   * 闹钟名称。
    */
   name = '闹钟';
 
   /**
-   * Custom alarm is open.
+   * 闹钟是否启用。
    */
   isOpen: boolean = true;
 
   /**
-   * Custom alarm is repeat.
+   * 闹钟重复类型。
    */
-  repeatType: RepeatType = RepeatType.NoRepeat
+  repeatType: RepeatType = RepeatType.NoRepeat;
 
   /**
-   * Custom alarm duration.
+   * 闹钟持续时间。
    */
   duration: number = 5;
 
   /**
-   * Custom alarm interval minute.
+   * 闹钟间隔时间（分钟）。
    */
   intervalMinute: number = 10;
 
   /**
-   * Custom alarm interval times.
+   * 闹钟间隔次数。
    */
   intervalTimes: number = 3;
 }
 
+/**
+ * 用于重复类型的枚举。
+ */
 export enum RepeatType {
-  NoRepeat = '仅一次',
-  Everyday = '每天',
-  DoubleRest = '双休制',
-  SingleRest = '单休制',
-  Custom = '自定义',
+  NoRepeat = '仅一次', // 仅一次
+  Everyday = '每天', // 每天
+  DoubleRest = '双休制', // 双休制
+  SingleRest = '单休制', // 单休制
+  Custom = '自定义', // 自定义
 }

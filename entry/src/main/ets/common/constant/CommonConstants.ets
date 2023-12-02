@@ -1,145 +1,132 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/**
+ * 通用常量类。
  */
-
 export class CommonConstants {
   /**
-   * database preference id.
+   * 数据库首选项ID。
    */
   static readonly PREFERENCE_ID = 'storageId';
   /**
-   * database alarm data key.
+   * 数据库闹钟数据键。
    */
   static readonly ALARM_KEY = 'alarmData';
 
   /**
-   * database city data key.
+   * 数据库城市数据键。
    */
   static readonly CITY_KEY = 'cityData';
   /**
-   * common full length
+   * 通用的全长字符串
    */
   static readonly FULL_LENGTH: string = '100%';
   /**
-   * default string space.
+   * 默认的空格字符串。
    */
   static readonly DEFAULT_STRING_SPACE: string = ' ';
   /**
-   * default string comma.
+   * 默认的逗号字符串。
    */
   static readonly DEFAULT_STRING_COMMA: string = '，';
   /**
-   * default string no repeat.
+   * 默认的不重复字符串。
    */
   static readonly DEFAULT_STRING_NO_REPEAT: string = '仅一次';
   /**
-   * default number negative.
+   * 默认的负数。
    */
   static readonly DEFAULT_NUMBER_NEGATIVE: number = -1;
   /**
-   * default layout weight.
+   * 默认的布局权重。
    */
   static readonly DEFAULT_LAYOUT_WEIGHT: number = 1;
   /**
-   * default single.
+   * 默认的单数。
    */
   static readonly DEFAULT_SINGLE: number = 1;
   /**
-   * default double.
+   * 默认的双数。
    */
   static readonly DEFAULT_DOUBLE: number = 2;
   /**
-   * default data picker hour selection.
+   * 默认的数据选择器小时选择。
    */
   static readonly DEFAULT_DATA_PICKER_HOUR_SELECTION: number = 2;
   /**
-   * default total minute.
+   * 默认的总分钟数。
    */
   static readonly DEFAULT_TOTAL_MINUTE: number = 60;
   /**
-   * default string monday.
+   * 默认的星期一字符串。
    */
   static readonly DEFAULT_STRING_MONDAY: string = '周一';
   /**
-   * default string tuesday.
+   * 默认的星期二字符串。
    */
   static readonly DEFAULT_STRING_TUESDAY: string = '周二';
   /**
-   * default string wednesday.
+   * 默认的星期三字符串。
    */
   static readonly DEFAULT_STRING_WEDNESDAY: string = '周三';
   /**
-   * default string thursday.
+   * 默认的星期四字符串。
    */
   static readonly DEFAULT_STRING_THURSDAY: string = '周四';
   /**
-   * default string friday.
+   * 默认的星期五字符串。
    */
   static readonly DEFAULT_STRING_FRIDAY: string = '周五';
   /**
-   * default string saturday.
+   * 默认的星期六字符串。
    */
   static readonly DEFAULT_STRING_SATURDAY: string = '周六';
   /**
-   * default string sunday.
+   * 默认的星期日字符串。
    */
   static readonly DEFAULT_STRING_SUNDAY: string = '周日';
   /**
-   * default number moment.
+   * 默认的时刻数。
    */
   static readonly DEFAULT_NUMBER_MOMENT: number = 3;
   /**
-   * default interval step.
+   * 默认的间隔步长。
    */
   static readonly DEFAULT_INTERVAL_STEP: number = 5;
   /**
-   * default common degree
+   * 默认的通用度数。
    */
   static readonly DEFAULT_COMMON_DEGREE: number = 6;
   /**
-   * default pointer width.
+   * 默认的指针宽度。
    */
   static readonly DEFAULT_POINTER_WIDTH: number = 10;
   /**
-   * default total hour.
+   * 默认的总小时数。
    */
   static readonly DEFAULT_TOTAL_HOUR: number = 12;
   /**
-   * default interval time max.
+   * 默认的间隔时间最大值。
    */
   static readonly DEFAULT_INTERVAL_TIME_MAX: number = 10;
   /**
-   * default interval minute max.
+   * 默认的间隔分钟最大值。
    */
   static readonly DEFAULT_INTERVAL_MINUTE_MAX: number = 30;
   /**
-   * bundle name.
+   * 应用包名
    */
   static readonly BUNDLE_NAME: string = 'com.huawei.alarmclock';
   /**
-   * ability name.
+   * Ability名称。
    */
   static readonly ABILITY_NAME: string = 'EntryAbility';
   /**
-   * animation
+   * 动画持续时间
    */
   static readonly ANIMATION_MEDIUM_DURATION = 500
   static readonly ANIMATION_SHORT_DURATION = 300
   /**
-   * date time
+   * 日期时间换算常量
    */
-  // 时间单位换算的常量
   static readonly MILLISECONDS_PER_SECOND = 1000;
   static readonly SECONDS_PER_MINUTE = 60;
   static readonly MINUTES_PER_HOUR = 60;
@@ -152,7 +139,7 @@ export class CommonConstants {
 }
 
 /**
- * Default number for a week.
+ * 星期枚举类
  */
 export enum WeekDays {
   DEFAULT_NUMBER_MONDAY = 1,

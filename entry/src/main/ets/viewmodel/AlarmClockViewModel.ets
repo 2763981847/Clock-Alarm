@@ -1,3 +1,4 @@
+// 导入所需模块和工具
 import { AlarmClockConstants } from '../common/constant/AlarmClockConstants';
 import ReminderService from '../model/ReminderService';
 import { CommonConstants, WeekDays } from '../common/constant/CommonConstants';
@@ -6,72 +7,93 @@ import DataTypeUtils from '../common/util/DataTypeUtils';
 import { GlobalContext } from '../common/util/GlobalContext';
 import PreferencesHandler from '../model/database/PreferencesHandler';
 import PreferencesListener from '../model/database/PreferencesListener';
-import reminderAgent from '@ohos.reminderAgent';
 import reminderAgentManager from '@ohos.reminderAgentManager';
 
 /**
- * Declare class of main view model.
+ * 主视图模型的类声明。
  */
 export default class AlarmClockViewModel {
+  // 创建一个静态的 AlarmClockViewModel 实例，用于全局访问
   static instant: AlarmClockViewModel = new AlarmClockViewModel();
+
+  // 声明一个 ReminderService 实例，用于管理提醒
   private reminderService: ReminderService;
+
+  // 声明一个存储闹钟项的数组
   private alarms: Array<AlarmItem>;
 
+  // 构造函数，用于初始化成员变量
   private constructor() {
+    // 初始化闹钟项数组为空数组
     this.alarms = new Array();
+    // 创建 ReminderService 实例
     this.reminderService = new ReminderService();
+    // 打开通知权限
     this.reminderService.openNotificationPermission();
+    // 禁用已过期的提醒
     this.disableExpiredReminders();
   }
 
   /**
-   * Querying alarm task database tables.
+   * 查询数据库中的闹钟项。
    *
-   * @param callback (alarms: Array<AlarmItem>) => void
+   * @param callback (alarms: Array<AlarmItem>) => void 回调函数，用于处理查询结果
    */
   private queryDatabaseAlarms(callback: (alarms: Array<AlarmItem>) => void) {
+    // 获取全局上下文中的 PreferencesHandler 实例
     let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
+    // 从数据库中获取闹钟项数据
     preference.get(CommonConstants.ALARM_KEY).then((data: string) => {
+      // 如果数据不为空
       if (!DataTypeUtils.isNull(data)) {
+        // 解析数据并存储到 alarms 数组中
         this.alarms = JSON.parse(data);
-        this.alarms.sort((a, b) => a.hour == b.hour ? a.minute - b.minute : a.hour - b.hour)
+        // 根据小时和分钟排序闹钟项数组
+        this.alarms.sort((a, b) => a.hour == b.hour ? a.minute - b.minute : a.hour - b.hour);
+        // 调用回调函数，将查询结果传递给调用者
         callback(this.alarms);
       }
-    })
+    });
   }
 
   /**
-   * Refresh alarm task.
+   * 刷新闹钟任务。
    *
-   * @param callback (alarms: Array<AlarmItem>) => void
+   * @param callback (alarms: Array<AlarmItem>) => void 回调函数，用于处理查询结果
    */
   public queryAlarmsTasker(callback: (alarms: Array<AlarmItem>) => void) {
     let that = this;
+    // 查询数据库中的闹钟项
     that.queryDatabaseAlarms(callback);
+    // 获取全局上下文中的 PreferencesHandler 实例
     let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
+    // 添加数据库变化监听器，用于在数据发生变化时刷新闹钟任务
     preference.addPreferencesListener({
       onDataChanged() {
         that.queryDatabaseAlarms(callback);
       }
-    } as PreferencesListener)
-  }
-
-  disableExpiredReminders() {
-    this.reminderService.getValidReminders(
-      (remindRequests: Array<reminderAgentManager.ReminderRequest>) => {
-        let remindRequestIds = remindRequests.map(remindRequest => remindRequest.notificationId)
-        this.alarms
-          .filter(alarm =>!remindRequestIds.includes(alarm.notificationId) && alarm.isOpen)
-          .forEach(alarm => this.openAlarm(alarm.id, false))
-      }
-    )
+    } as PreferencesListener);
   }
 
   /**
-   * Padding zeros for insufficient digits
+   * 禁用已过期的提醒。
+   */
+  disableExpiredReminders() {
+    this.reminderService.getValidReminders(
+      (remindRequests: Array<reminderAgentManager.ReminderRequest>) => {
+        let remindRequestIds = remindRequests.map(remindRequest => remindRequest.notificationId);
+        this.alarms
+          .filter(alarm =>!remindRequestIds.includes(alarm.notificationId) && alarm.isOpen)
+          .forEach(alarm => this.openAlarm(alarm.id, false));
+      }
+    );
+  }
+
+  /**
+   * 为数字填充前导零。
    *
-   * @param val number
-   * @return content string
+   * @param val number 要填充的数字
+   * @return content string 填充后的字符串
    */
   public static fillZero(val: number): string {
     return (val > AlarmClockConstants.DEFAULT_SINGLE_DIGIT_MAX
@@ -80,23 +102,11 @@ export default class AlarmClockViewModel {
   }
 
   /**
-   * Get noon content in AlarmClockViewModel.
+   * 获取闹钟任务的时间内容。
    *
-   * @param hour number
-   * @return content string
-   */
-  public getNoonContent(hour: number): string {
-    return (hour < CommonConstants.DEFAULT_TOTAL_HOUR
-      ? AlarmClockConstants.DEFAULT_STRING_MORNING
-      : AlarmClockConstants.DEFAULT_STRING_AFTERNOON);
-  }
-
-  /**
-   * Get task time content in AlarmClockViewModel.
-   *
-   * @param hour number
-   * @param minute number
-   * @return content string
+   * @param hour number 小时
+   * @param minute number 分钟
+   * @return content string 时间内容字符串
    */
   public getTaskTimeContent(hour: number, minute: number): string {
     return (AlarmClockViewModel.fillZero(hour > CommonConstants.DEFAULT_TOTAL_HOUR ? hour - CommonConstants.DEFAULT_TOTAL_HOUR : hour)
@@ -105,10 +115,10 @@ export default class AlarmClockViewModel {
   }
 
   /**
-   * Get description content in AlarmClockViewModel.
+   * 获取描述内容。
    *
-   * @param alarmItem AlarmItem
-   * @return content string
+   * @param alarmItem AlarmItem 闹钟项
+   * @return content string 描述内容字符串
    */
   public getDescContent(alarmItem: AlarmItem): string {
     return (alarmItem.name + CommonConstants.DEFAULT_STRING_COMMA
@@ -118,10 +128,10 @@ export default class AlarmClockViewModel {
   }
 
   /**
-   * Obtains the number of repetition days of an alarm task.
+   * 获取闹钟任务的重复日期内容。
    *
-   * @param repeatDays Array<number>
-   * @return content string
+   * @param repeatDays Array<number> 重复日期数组
+   * @return content string 重复日期内容字符串
    */
   public getAlarmRepeatDayContent(repeatDays: Array<number>): string {
     let content = AlarmClockConstants.DEFAULT_STRING_NULL;
@@ -159,10 +169,10 @@ export default class AlarmClockViewModel {
   }
 
   /**
-   * Enabling/Disabling alarms.
+   * 启用/禁用闹钟。
    *
-   * @param id number
-   * @return isOpen boolean
+   * @param id number 闹钟项的 ID
+   * @return isOpen boolean 闹钟是否启用
    */
   public openAlarm(id: number, isOpen: boolean) {
     for (let i = 0; i < this.alarms.length; i++) {
@@ -173,7 +183,9 @@ export default class AlarmClockViewModel {
         } else {
           this.reminderService.deleteReminder(this.alarms[i].id);
         }
+        // 获取全局上下文中的 PreferencesHandler 实例
         let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
+        // 将更新后的闹钟数据保存到数据库
         preference.set(CommonConstants.ALARM_KEY, JSON.stringify(this.alarms));
         break;
       }

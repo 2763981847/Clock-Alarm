@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { DetailConstants } from '../common/constant/DetailConstants';
 import { CommonConstants, WeekDays } from '../common/constant/CommonConstants';
 import AlarmItem from './AlarmItem';
@@ -23,7 +8,7 @@ import PreferencesHandler from '../model/database/PreferencesHandler';
 import DayDataItem from './DayDataItem';
 
 /**
- * Detail page view model description
+ * 详细页面视图模型描述
  */
 export default class DetailViewModel {
   static instant: DetailViewModel = new DetailViewModel();
@@ -36,7 +21,7 @@ export default class DetailViewModel {
   }
 
   /**
-   * Conversion alarm repeat day content
+   * 转换闹钟重复日期的内容
    *
    * @param repeatDay number
    * @return repeatContent string
@@ -72,7 +57,7 @@ export default class DetailViewModel {
   }
 
   /**
-   * Set the initial time of the alarm.
+   * 设置闹钟的默认时间。
    *
    * @param alarmItem AlarmItem
    */
@@ -87,12 +72,12 @@ export default class DetailViewModel {
       hour = alarmItem.hour;
       minute = alarmItem.minute;
     }
-    DetailConstants.DAY_DATA[0].delSelect = hour
-    DetailConstants.DAY_DATA[1].delSelect = minute
+    DetailConstants.DAY_DATA[0].delSelect = hour;
+    DetailConstants.DAY_DATA[1].delSelect = minute;
   }
 
   /**
-   * Set the alarm remind.
+   * 设置闹钟提醒。
    *
    * @param alarmItem AlarmItem
    */
@@ -113,11 +98,11 @@ export default class DetailViewModel {
       this.alarms[index] = alarmItem;
       let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
       preference.set(CommonConstants.ALARM_KEY, JSON.stringify(this.alarms));
-    })
+    });
   }
 
   /**
-   * Remove the alarm remind.
+   * 移除闹钟提醒。
    *
    * @param id number
    */
@@ -143,7 +128,7 @@ export default class DetailViewModel {
     let data = await preference.get(CommonConstants.ALARM_KEY);
     if (!DataTypeUtils.isNull(data)) {
       this.alarms = JSON.parse(data);
-      for (let i = 0;i < this.alarms.length; i++) {
+      for (let i = 0; i < this.alarms.length; i++) {
         if (this.alarms[i].id === id) {
           return i;
         }
@@ -152,4 +137,3 @@ export default class DetailViewModel {
     return CommonConstants.DEFAULT_NUMBER_NEGATIVE;
   }
 }
-

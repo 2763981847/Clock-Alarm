@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import display from '@ohos.display';
 import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
@@ -21,23 +6,37 @@ import PreferencesHandler from '../model/database/PreferencesHandler';
 import { GlobalContext } from '../common/util/GlobalContext';
 
 export default class EntryAbility extends UIAbility {
+  /**
+   * 创建实例时调用。
+   */
   onCreate() {
+    // 在全局上下文中设置对象实例
     GlobalContext.getContext().setObject('preference', PreferencesHandler.instance);
   }
 
+  /**
+   * 窗口阶段创建时调用。
+   *
+   * @param windowStage 创建的窗口阶段
+   */
   async onWindowStageCreate(windowStage: window.WindowStage) {
-    // AlarmClock window is created, set main page for this ability
+    // AlarmClock 窗口已创建，为该能力设置主页面
     let globalDisplay: display.Display = display.getDefaultDisplaySync();
+    // 在全局上下文中设置全局对象实例
     GlobalContext.getContext().setObject('globalDisplay', globalDisplay);
     let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
+    // 配置偏好设置处理器
     await preference.configure(this.context.getApplicationContext());
 
+    // 加载主页面的内容
     windowStage.loadContent('pages/MainPage', (err, data) => {
       if (err.code) {
-        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+        // 加载内容失败时记录错误日志
+        hilog.error(0x0000, 'testTag', '加载内容失败。原因：%{public}s', JSON.stringify(err) ?? '');
         return;
       }
-      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
+      // 加载内容成功时记录信息日志
+      hilog.info(0x0000, 'testTag', '加载内容成功。数据：%{public}s', JSON.stringify(data) ?? '');
     });
   }
 }

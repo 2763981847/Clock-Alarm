@@ -1,18 +1,3 @@
-/*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import hilog from '@ohos.hilog';
 
 class Logger {
@@ -21,31 +6,52 @@ class Logger {
   private format: string = '%{public}s, %{public}s';
 
   /**
-   * constructor.
+   * 构造函数。
    *
-   * @param Prefix identifies the log tag.
-   * @param domain Domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF.
+   * @param prefix 标识日志标签的前缀
+   * @param domain 域，表示服务域，范围从 0x0 到 0xFFFFF 的十六进制整数
    */
   constructor(prefix: string = 'AlarmClock', domain: number = 0xFF00) {
     this.prefix = prefix;
     this.domain = domain;
   }
 
+  /**
+   * 记录调试级别的日志。
+   *
+   * @param args 要记录的日志信息
+   */
   debug(...args: string[]): void {
     hilog.debug(this.domain, this.prefix, this.format, args);
   }
 
+  /**
+   * 记录信息级别的日志。
+   *
+   * @param args 要记录的日志信息
+   */
   info(...args: string[]): void {
     hilog.info(this.domain, this.prefix, this.format, args);
   }
 
+  /**
+   * 记录警告级别的日志。
+   *
+   * @param args 要记录的日志信息
+   */
   warn(...args: string[]): void {
     hilog.warn(this.domain, this.prefix, this.format, args);
   }
 
+  /**
+   * 记录错误级别的日志。
+   *
+   * @param args 要记录的日志信息
+   */
   error(...args: string[]): void {
     hilog.error(this.domain, this.prefix, this.format, args);
   }
 }
 
+// 创建默认的 Logger 实例并导出
 export default new Logger('AlarmClock', 0xFF00);

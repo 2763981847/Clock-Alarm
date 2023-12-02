@@ -4,12 +4,14 @@ import AlarmClockViewModel from '../../viewmodel/AlarmClockViewModel'
 @Preview
 @Component
 export default struct NearestAlarmTime {
+  // 最近的闹钟时间
   @Link nearestAlarmTime: {
     days: number,
     hours: number,
     minutes: number
   }
 
+  // 构建组件
   build() {
     Text() {
       if (this.nearestAlarmTime) {

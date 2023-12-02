@@ -1,18 +1,6 @@
-/*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/**
+ * 全局上下文类，用于在应用程序中共享全局数据和对象。
  */
-
 export class GlobalContext {
   private constructor() {
   }
@@ -20,6 +8,11 @@ export class GlobalContext {
   private static instance: GlobalContext;
   private _objects = new Map<string, Object>();
 
+  /**
+   * 获取全局上下文实例。
+   *
+   * @return 全局上下文实例
+   */
   public static getContext(): GlobalContext {
     if (!GlobalContext.instance) {
       GlobalContext.instance = new GlobalContext();
@@ -27,10 +20,22 @@ export class GlobalContext {
     return GlobalContext.instance;
   }
 
-  getObject(value: string): Object | undefined {
-    return this._objects.get(value);
+  /**
+   * 获取指定键对应的对象。
+   *
+   * @param key 对象的键
+   * @return 对应的对象，如果不存在则返回 undefined
+   */
+  getObject(key: string): Object | undefined {
+    return this._objects.get(key);
   }
 
+  /**
+   * 设置指定键对应的对象。
+   *
+   * @param key 对象的键
+   * @param objectClass 要设置的对象
+   */
   setObject(key: string, objectClass: Object): void {
     this._objects.set(key, objectClass);
   }

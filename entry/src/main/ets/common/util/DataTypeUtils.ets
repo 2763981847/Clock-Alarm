@@ -1,35 +1,22 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License,Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 /**
- * Data type utils.
+ * 数据类型工具类。
  */
 export default class DataTypeUtils {
   /**
-   * return obj is null.
+   * 判断对象是否为 null。
    *
-   * @return boolean.
+   * @param obj 要检查的对象
+   * @return 是否为 null 的布尔值
    */
   static isNull(obj: Object): boolean {
     return (typeof obj === 'undefined' || obj == null || obj === '');
   }
 
   /**
-   * return new deep copy object from obj.
+   * 从对象 obj 创建一个深拷贝的新对象。
    *
-   * @return type in obj.
+   * @param obj 要深拷贝的对象
+   * @return 与 obj 类型相同的新对象
    */
   static deepCopy(obj: number[]) {
     let newObj: number[] = [];
