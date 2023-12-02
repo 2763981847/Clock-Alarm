@@ -10,6 +10,7 @@ import promptAction from '@ohos.promptAction';
 import router from '@ohos.router';
 
 @Component
+@Entry
 struct AddCityPage {
   @State message: string = 'Hello World'
   private viewModel: WorldClockViewModel = WorldClockViewModel.instant;

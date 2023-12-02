@@ -11,11 +11,10 @@ import SettingItem from '../view/Detail/SettingItem';
 import DimensionUtil from '../common/util/DimensionUtils';
 import promptAction from '@ohos.promptAction';
 import { findNearestAlarmTime, generateNearestAlarmTimeToast } from '../common/util/AlarmClockUtils';
-
+/**
+ * DetailPage 页面组件。
+ */
 @Entry
-  /**
-   * DetailPage 页面组件。
-   */
 @Component
 export default struct DetailPage {
   // 监听 alarmItem 属性变化，提供给子组件使用

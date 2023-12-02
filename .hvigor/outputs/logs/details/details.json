@@ -1,9 +1,9 @@
 {
-  "totalTime": 8517355800,
+  "totalTime": 14930564900,
   "moduleNum": 1,
   "taskTime": {
     "compileArkTS": 0,
-    "compileJS": 7867300,
+    "compileJS": 7442800,
     "compileResource": 0,
     "packageHap": 0,
     "signHap": 0
