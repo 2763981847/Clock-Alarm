@@ -1,5 +1,3 @@
-
-
 /**
  * AlarmClock page constant description.
  */
@@ -64,4 +62,5 @@ export class AlarmClockConstants {
    * Clock pan image url.
    */
   static readonly CLOCK_PAN_IMAGE_URL: string = '../../../resources/base/media/ic_clock_pan.png';
+  static readonly REPEAT_TYPE_GROUP: string = 'repeatTypeGroup'
 }

@@ -24,13 +24,15 @@ export default struct ClockArea {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private renderContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   @Link @Watch('drawClockArea') now: number
+  private isReady: boolean = false
 
   build() {
     Canvas(this.renderContext)
       .width(this.canvasSize)
-      .aspectRatio(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
+      .height(this.canvasSize)
       .onReady(() => {
         this.startDrawTask();
+        this.isReady = true
       })
   }
 
@@ -39,11 +41,13 @@ export default struct ClockArea {
     this.renderContext.translate(
       this.canvasSize / CommonConstants.DEFAULT_DOUBLE,
       this.canvasSize / CommonConstants.DEFAULT_DOUBLE);
-    this.drawClockArea();
   }
 
   // 开始绘制时钟区域
   private drawClockArea(): void {
+    if (!this.isReady) {
+      return
+    }
     this.renderContext.clearRect(
       -this.canvasSize,
       -this.canvasSize / CommonConstants.DEFAULT_DOUBLE,

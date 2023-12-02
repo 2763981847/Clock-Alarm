@@ -1,6 +1,6 @@
 {
   "src": [
-    "pages/DetailIndex",
+    "pages/DetailPage",
     "pages/MainPage",
     "pages/AddCityPage"
   ]

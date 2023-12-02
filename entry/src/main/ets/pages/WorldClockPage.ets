@@ -57,35 +57,64 @@ export default struct WorldClockPage {
             .width(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
             .height(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
             .onClick(() => {
+              this.selectedList = []
               this.isEdit = !this.isEdit
             })
           }
         }
 
-        ClockArea({ now: $now })
-        Text("中国标准时间")
-          .fontColor($r('app.color.grey_text'))
-          .fontSize($r('app.float.font_size_S'))
-        Text(`${formatDateTime(this.now, "MM月dd日")}  星期${getChineseWeekday(new Date(this.now).getDay())}`)
-          .fontSize($r('app.float.font_size_M'))
+        Scroll(new Scroller()) {
+          Column({ space: DimensionUtil.getVp($r('app.float.alarm_list_space')) }) {
+            ClockArea({ now: $now })
+            Text("中国标准时间")
+              .fontColor($r('app.color.grey_text'))
+              .fontSize($r('app.float.font_size_S'))
+            Text(`${formatDateTime(this.now, "MM月dd日")}  星期${getChineseWeekday(new Date(this.now).getDay())}`)
+              .fontSize($r('app.float.font_size_M'))
 
-        CityList({ cityItems: $cityItems, selectedList: $selectedList })
+            CityList({ cityItems: $cityItems, selectedList: $selectedList })
+          }.width(CommonConstants.FULL_LENGTH)
+          .justifyContent(FlexAlign.Start)
+
+        }.width(CommonConstants.FULL_LENGTH)
+        .scrollBar(BarState.Off)
+        .edgeEffect(EdgeEffect.Spring)
+
       }.width(CommonConstants.FULL_LENGTH)
       .height(CommonConstants.FULL_LENGTH)
+      .justifyContent(FlexAlign.Start)
+
 
       if (this.isEdit) {
-        Button('删除')
-          .onClick(() => {
-            this.worldClockModel.batchRemoveCities(this.selectedList)
-            this.isEdit = false
-          })
-          .width(CommonConstants.FULL_LENGTH)
-          .margin({
-            left: DimensionUtil.getVp($r('app.float.title_horizon_margin')),
-            right: DimensionUtil.getVp($r('app.float.title_horizon_margin'))
-          })
+        Button() {
+          Column({ space: DimensionUtil.getVp($r('app.float.alarm_list_space')) }) {
+            Image($r('app.media.ic_delete'))
+              .objectFit(ImageFit.Contain)
+              .width($r('app.float.font_size_L'))
+            Text("删除")
+              .fontSize($r('app.float.font_size_SM'))
+          }.justifyContent(FlexAlign.Center)
+        }
+        .onClick(() => {
+          this.worldClockModel.batchRemoveCities(this.selectedList)
+          this.selectedList = []
+          this.isEdit = false
+        })
+        .backgroundColor(Color.White)
+        .borderRadius(DimensionUtil.getVp($r('app.float.alarms_item_radius')))
+        .backgroundColor(Color.White)
+        .aspectRatio(5)
+        .width(CommonConstants.FULL_LENGTH)
+
+        .margin({
+          left: DimensionUtil.getVp($r('app.float.title_horizon_margin')),
+          right: DimensionUtil.getVp($r('app.float.title_horizon_margin'))
+        })
+        .offset({ y: -DimensionUtil.getVp($r('app.float.title_horizon_margin')) })
       }
     }.backgroundColor($r('app.color.grey_light'))
+    .height(CommonConstants.FULL_LENGTH)
+    .width(CommonConstants.FULL_LENGTH)
 
   }
 }

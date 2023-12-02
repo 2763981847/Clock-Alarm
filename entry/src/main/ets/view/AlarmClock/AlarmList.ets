@@ -16,9 +16,9 @@ export default struct AlarmList {
         ListItem() {
           AlarmListItem({ alarmItem: item })
         }.onClick(() => {
-          router.pushUrl({ url: 'pages/DetailIndex', params: { alarmItem: item } });
+          router.pushUrl({ url: 'pages/DetailPage', params: { alarmItem: item } });
         }).transition({ type: TransitionType.All, opacity: 0, scale: { x: 0, y: 0 } })
-      }, (item: AlarmItem) => item.id.toString())
+      }, (item: AlarmItem) => JSON.stringify(item))
     }
     .padding({
       left: DimensionUtil.getVp($r('app.float.alarm_list_content_distance')),

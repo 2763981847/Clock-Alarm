@@ -105,6 +105,10 @@
       "value": "20"
     },
     {
+      "name": "weekday_selected_item_radius",
+      "value": "15"
+    },
+    {
       "name": "alarms_item_height",
       "value": "72"
     },

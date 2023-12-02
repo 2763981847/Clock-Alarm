@@ -1,4 +1,4 @@
-import AlarmItem from '../../viewmodel/AlarmItem';
+import AlarmItem, { RepeatType } from '../../viewmodel/AlarmItem';
 import { CommonConstants } from '../constant/CommonConstants';
 
 export function generateNearestAlarmTimeToast(nextAlarmTime: {
@@ -41,7 +41,7 @@ export function getNextAlarmTime(alarm: AlarmItem): Date {
   let nextAlarmDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), alarm.hour, alarm.minute);
 
 
-  if (!alarm.isRepeat) {
+  if (alarm.repeatType === RepeatType.NoRepeat) {
     // 如果不重复，检查是否已经过了今天的响铃时间
     if (nextAlarmDate < now) {
       // 如果已经过了，设置为明天

@@ -51,10 +51,7 @@ export default struct DurationDialog {
           }
           .width(CommonConstants.FULL_LENGTH)
 
-          Divider()
-            .opacity($r('app.float.divider_opacity'))
-            .color($r('app.color.grey_divider'))
-            .lineCap(LineCapStyle.Round)
+
         })
       }
     }

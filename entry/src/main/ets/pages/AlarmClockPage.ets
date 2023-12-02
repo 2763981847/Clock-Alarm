@@ -43,10 +43,16 @@ export default struct AlarmClockPage {
       animateTo({ duration: CommonConstants.ANIMATION_MEDIUM_DURATION }, () => {
         this.alarmItems = alarms;
         this.nearestAlarmTime = findNearestAlarmTime(this.alarmItems)
+        if (this.nearestAlarmTime && this.nearestAlarmTime.days === 0 && this.nearestAlarmTime.hours === 0 && this.nearestAlarmTime.minutes === 0) {
+          this.nearestAlarmTime.minutes = 1
+        }
       })
     })
     this.intervalId = setInterval(() => {
       this.nearestAlarmTime = findNearestAlarmTime(this.alarmItems)
+      if (this.nearestAlarmTime && this.nearestAlarmTime.days === 0 && this.nearestAlarmTime.hours === 0 && this.nearestAlarmTime.minutes === 0) {
+        this.nearestAlarmTime.minutes = 1
+      }
       this.alarmClockModel.disableExpiredReminders()
     }, AlarmClockConstants.DEFAULT_ONE_SECOND_MS);
   }
@@ -59,29 +65,18 @@ export default struct AlarmClockPage {
 
     Column() {
       HeaderContainer({ title: AlarmClockConstants.DEFAULT_STRING_ALARM }) {
-        Row({ space: DimensionUtil.getVp($r('app.float.new_alarm_button_size')) }) {
-          Button() {
-            Image($r('app.media.ic_add')).objectFit(ImageFit.Fill)
-          }
-          .stateEffect(false)
-          .backgroundColor($r('app.color.trans_parent'))
-          .width(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
-          .height(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
-          .onClick(() => {
-            router.pushUrl({ url: 'pages/DetailIndex' });
-          })
 
-          Button() {
-            Image($r('app.media.ic_edit')).objectFit(ImageFit.Fill)
-          }
-          .stateEffect(false)
-          .backgroundColor($r('app.color.trans_parent'))
-          .width(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
-          .height(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
-          .onClick(() => {
-            // todo
-          })
+        Button() {
+          Image($r('app.media.ic_add')).objectFit(ImageFit.Fill)
         }
+        .stateEffect(false)
+        .backgroundColor($r('app.color.trans_parent'))
+        .width(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
+        .height(DimensionUtil.getVp($r('app.float.new_alarm_button_size')))
+        .onClick(() => {
+          router.pushUrl({ url: 'pages/DetailPage' });
+        })
+
       }
 
       NearestAlarmTime({ nearestAlarmTime: $nearestAlarmTime })

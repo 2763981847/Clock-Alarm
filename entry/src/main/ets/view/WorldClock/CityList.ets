@@ -18,14 +18,14 @@ export default struct CityList {
             onSelected: () => this.selectedList.push(index),
             onCanceled: () => this.selectedList.splice(this.selectedList.indexOf(index)) })
         }.transition({ type: TransitionType.All, opacity: 0, scale: { x: 0, y: 0 } })
-      }, (cityItem) => JSON.stringify(cityItem))
+      }, (cityItem: CityItem) => cityItem.city + " " + cityItem.country)
     }
     .padding({
       left: DimensionUtil.getVp($r('app.float.alarm_list_content_distance')),
       right: DimensionUtil.getVp($r('app.float.alarm_list_content_distance'))
     })
     .width(CommonConstants.FULL_LENGTH)
-    .height(CommonConstants.FULL_LENGTH)
+
 
   }
 }

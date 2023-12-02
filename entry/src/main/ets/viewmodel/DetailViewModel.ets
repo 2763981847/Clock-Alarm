@@ -87,15 +87,8 @@ export default class DetailViewModel {
       hour = alarmItem.hour;
       minute = alarmItem.minute;
     }
-    DetailConstants.DAY_DATA[0].delSelect = (hour >= CommonConstants.DEFAULT_TOTAL_HOUR
-      ? CommonConstants.DEFAULT_SINGLE
-      : 0);
-    DetailConstants.DAY_DATA[CommonConstants.DEFAULT_SINGLE].delSelect = (hour === 0
-      ? CommonConstants.DEFAULT_TOTAL_HOUR
-      : (hour > CommonConstants.DEFAULT_TOTAL_HOUR ? hour - CommonConstants.DEFAULT_TOTAL_HOUR : hour))
-      - CommonConstants.DEFAULT_SINGLE;
-    DetailConstants.DAY_DATA[CommonConstants.DEFAULT_DATA_PICKER_HOUR_SELECTION].delSelect =
-      (minute === 0 ? CommonConstants.DEFAULT_TOTAL_MINUTE : minute) - CommonConstants.DEFAULT_SINGLE;
+    DetailConstants.DAY_DATA[0].delSelect = hour
+    DetailConstants.DAY_DATA[1].delSelect = minute
   }
 
   /**
@@ -104,8 +97,8 @@ export default class DetailViewModel {
    * @param alarmItem AlarmItem
    */
   public async setAlarmRemind(alarmItem: AlarmItem) {
-    alarmItem.hour = this.getAlarmTime(CommonConstants.DEFAULT_SINGLE);
-    alarmItem.minute = this.getAlarmTime(CommonConstants.DEFAULT_DATA_PICKER_HOUR_SELECTION);
+    alarmItem.hour = this.getAlarmTime(0);
+    alarmItem.minute = this.getAlarmTime(1);
     let index = await this.findAlarmWithId(alarmItem.id);
     if (index !== CommonConstants.DEFAULT_NUMBER_NEGATIVE) {
       this.reminderService.deleteReminder(alarmItem.id);
@@ -139,15 +132,9 @@ export default class DetailViewModel {
   }
 
   private getAlarmTime(aType: number): number {
-    let times:DayDataItem = DetailConstants.DAY_DATA[aType];
+    let times: DayDataItem = DetailConstants.DAY_DATA[aType];
     let selectedIndex = times.delSelect;
     let time = Number(times.data[selectedIndex]);
-    if (aType === CommonConstants.DEFAULT_SINGLE) {
-      time = (time === CommonConstants.DEFAULT_TOTAL_HOUR ? 0 : time)
-        + (DetailConstants.DAY_DATA[0].delSelect === CommonConstants.DEFAULT_SINGLE
-          ? CommonConstants.DEFAULT_TOTAL_HOUR
-          : 0);
-    }
     return time;
   }
 

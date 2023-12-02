@@ -15,7 +15,7 @@
 
 import router from '@ohos.router';
 import { CommonConstants } from '../common/constant/CommonConstants';
-import AlarmItem from '../viewmodel/AlarmItem';
+import AlarmItem, { RepeatType } from '../viewmodel/AlarmItem';
 import AlarmSettingItem from '../viewmodel/AlarmSettingItem';
 import { AlarmSettingTypes } from '../common/constant/AlarmSettingTypes';
 import { DetailConstants } from '../common/constant/DetailConstants';
@@ -30,7 +30,7 @@ import { findNearestAlarmTime, generateNearestAlarmTimeToast, getNextAlarmTime }
 
 @Entry
 @Component
-struct DetailIndex {
+struct DetailPage {
   @Watch('onAlarmItemChange') @Provide(DetailConstants.DEFAULT_PROVIDER_KEY) alarmItem: AlarmItem = new AlarmItem();
   @State repeatSettingArr: Array<AlarmSettingItem> = [];
   @State alarmSettingInfoArr: Array<AlarmSettingItem> = [];
@@ -61,8 +61,8 @@ struct DetailIndex {
   initData() {
     this.repeatSettingArr = [
       new AlarmSettingItem(DetailConstants.DEFAULT_STRING_REPEAT,
-        this.alarmItem.isRepeat ? DetailConstants.DEFAULT_STRING_REPEAT
-                                : CommonConstants.DEFAULT_STRING_NO_REPEAT, AlarmSettingTypes.REPEAT)
+        this.alarmItem.repeatType,
+        AlarmSettingTypes.REPEAT)
     ];
     this.alarmSettingInfoArr = [
       new AlarmSettingItem(DetailConstants.DEFAULT_STRING_ALARM_NAME, this.alarmItem.name, AlarmSettingTypes.ALARM_NAME),
@@ -96,6 +96,7 @@ struct DetailIndex {
         .width(DimensionUtil.getVp($r('app.float.title_button_size')))
         .height(DimensionUtil.getVp($r('app.float.title_button_size')))
         .onClick(() => {
+          this.alarmItem.isOpen = true
           this.viewModel.setAlarmRemind(this.alarmItem);
           let nextAlarmTime = findNearestAlarmTime([this.alarmItem])
           promptAction.showToast({

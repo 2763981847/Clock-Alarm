@@ -1,7 +1,7 @@
 import { AlarmClockConstants } from '../common/constant/AlarmClockConstants';
 import ReminderService from '../model/ReminderService';
 import { CommonConstants, WeekDays } from '../common/constant/CommonConstants';
-import AlarmItem from './AlarmItem';
+import AlarmItem, { RepeatType } from './AlarmItem';
 import DataTypeUtils from '../common/util/DataTypeUtils';
 import { GlobalContext } from '../common/util/GlobalContext';
 import PreferencesHandler from '../model/database/PreferencesHandler';
@@ -112,9 +112,9 @@ export default class AlarmClockViewModel {
    */
   public getDescContent(alarmItem: AlarmItem): string {
     return (alarmItem.name + CommonConstants.DEFAULT_STRING_COMMA
-    + (alarmItem.isRepeat
+    + (alarmItem.repeatType === RepeatType.Custom
       ? this.getAlarmRepeatDayContent(alarmItem.repeatDays)
-      : CommonConstants.DEFAULT_STRING_NO_REPEAT));
+      : alarmItem.repeatType));
   }
 
   /**

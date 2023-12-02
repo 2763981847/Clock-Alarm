@@ -1,4 +1,3 @@
-
 import ReminderItem from './ReminderItem';
 
 /**
@@ -18,7 +17,7 @@ import ReminderItem from './ReminderItem';
   /**
    * Custom alarm is repeat.
    */
-  isRepeat: boolean = false;
+  repeatType: RepeatType = RepeatType.NoRepeat
 
   /**
    * Custom alarm duration.
@@ -34,4 +33,12 @@ import ReminderItem from './ReminderItem';
    * Custom alarm interval times.
    */
   intervalTimes: number = 3;
+}
+
+export enum RepeatType {
+  NoRepeat = '仅一次',
+  Everyday = '每天',
+  DoubleRest = '双休制',
+  SingleRest = '单休制',
+  Custom = '自定义',
 }
