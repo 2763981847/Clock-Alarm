@@ -35,6 +35,7 @@ export default struct AlarmClockPage {
   aboutToAppear() {
     // 查询闹钟数据
     this.alarmClockModel.queryAlarmsTasker((alarms: Array<AlarmItem>) => {
+      this.alarmClockModel.disableExpiredReminders();
       // 将查询到的数据赋值给 alarmItems 和 nearestAlarmTime
       animateTo({ duration: CommonConstants.ANIMATION_MEDIUM_DURATION }, () => {
         this.alarmItems = alarms;
@@ -57,6 +58,7 @@ export default struct AlarmClockPage {
       }
 
       this.alarmClockModel.disableExpiredReminders();
+
     }, AlarmClockConstants.DEFAULT_ONE_SECOND_MS);
   }
 

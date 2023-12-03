@@ -13,7 +13,7 @@ export default struct RepeatDialog {
   // 使用 DetailConstants.DEFAULT_PROVIDER_KEY 提供的 AlarmItem
   @Consume(DetailConstants.DEFAULT_PROVIDER_KEY) alarmItem: AlarmItem;
   // 存储选择的重复天数
-  @State selects: number[] = [];
+  @State selects: Array<number> = new Array();
   // 存储选择的重复类型
   @State repeatType: RepeatType = RepeatType.NoRepeat;
   // 弹窗控制器
@@ -61,7 +61,7 @@ export default struct RepeatDialog {
           }
           this.alarmItem.repeatType = this.repeatType; // 更新 AlarmItem 的重复类型
           this.setSelectsByRepeatType(this.repeatType); // 根据重复类型设置选择的重复天数
-          this.selects.sort(); // 对选择的重复天数进行排序
+          this.selects = DataTypeUtils.deepCopy(this.selects).sort() // 对选择的重复天数进行排序
           this.alarmItem.repeatDays = this.selects; // 更新 AlarmItem 的重复天数
         }
       }) {
@@ -110,6 +110,7 @@ export default struct RepeatDialog {
                 .onClick(() => {
                   if (!this.selects.includes(item)) {
                     this.selects.push(item);
+                    console.log("selects" + this.selects)
                   } else {
                     let index = this.selects.indexOf(item);
                     this.selects.splice(index, CommonConstants.DEFAULT_SINGLE);

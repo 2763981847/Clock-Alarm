@@ -109,7 +109,7 @@ export default class AlarmClockViewModel {
    * @return content string 时间内容字符串
    */
   public getTaskTimeContent(hour: number, minute: number): string {
-    return (AlarmClockViewModel.fillZero(hour > CommonConstants.DEFAULT_TOTAL_HOUR ? hour - CommonConstants.DEFAULT_TOTAL_HOUR : hour)
+    return (AlarmClockViewModel.fillZero(hour)
     + AlarmClockConstants.DEFAULT_STRING_COLON
     + AlarmClockViewModel.fillZero(minute));
   }

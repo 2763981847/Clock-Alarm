@@ -6,6 +6,7 @@ import { CommonConstants } from '../common/constant/CommonConstants';
 import ReminderItem from '../viewmodel/ReminderItem';
 import notification from '@ohos.notificationManager';
 import Logger from '../common/util/Logger';
+import DataTypeUtils from '../common/util/DataTypeUtils';
 
 export default class ReminderService {
   /**
@@ -62,7 +63,7 @@ export default class ReminderService {
       reminderType: item.remindType,
       hour: item.hour,
       minute: item.minute,
-      daysOfWeek: item.repeatDays,
+      daysOfWeek: DataTypeUtils.deepCopy(item.repeatDays),
       title: item.name,
       ringDuration: item.duration * CommonConstants.DEFAULT_TOTAL_MINUTE,
       snoozeTimes: item.intervalTimes,
